@@ -1,0 +1,4 @@
+mostlyai
+python-dotenv
+pandas
+requests
