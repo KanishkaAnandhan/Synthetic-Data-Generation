@@ -6,7 +6,9 @@ pipeline {
         MOSTLY_AI_API_KEY = credentials('MOSTLY_AI_API_KEY')
     }
 
-    stage('Setup venv and install dependencies') {
+stages {
+    stage('Setup venv and install dependencies') 
+    {
     steps {
         bat '''
         cd C:\\Users\\kanishka.ananthan\\mostlyaidata
@@ -24,6 +26,7 @@ stage('Run data generation') {
         venv\\Scripts\\python.exe quick-generate.py
         '''
     }
+}
 }
 
 
