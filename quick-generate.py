@@ -16,7 +16,7 @@ def install_packages():
 
 def main():
     """Quick data generation"""
-    print("🚀 Quick Mostly AI Test Data Generation")
+    print("Quick Mostly AI Test Data Generation")
     print("=" * 45)
     
     # Install packages
@@ -35,23 +35,23 @@ def main():
     if not api_key:
         api_key = "mostly-c146635b4d81e15a7097d3a44de15da8a8edd43c5af1f9746e9849d04887277b"
         if not api_key:
-            print("❌ API key required")
+            print("API key required")
             return
     
-    print(f"🔑 Using API key: {api_key[:10]}...")
+    print(f"Using API key: {api_key[:10]}...")
     
     try:
         # Initialize client
         mostly = MostlyAI(api_key=api_key, base_url='https://app.mostly.ai')
-        print("✅ Client initialized")
+        print("Client initialized")
         
         # Quick generation with census data
-        print("🔄 Training generator...")
+        print("Training generator...")
         generator = mostly.train(
             data='https://github.com/mostly-ai/public-demo-data/raw/dev/census/census.csv.gz'
         )
         
-        print("🔄 Generating 20 records...")
+        print("Generating 20 records...")
         synthetic_dataset = mostly.generate(generator, size=20)
         
         # Get and save data
@@ -65,14 +65,14 @@ def main():
         filename = f"data/output/quick_synthetic_data_{timestamp}.csv"
         data.to_csv(filename, index=False)
         
-        print(f"✅ Generated {len(data)} records")
-        print(f"💾 Saved to: {filename}")
-        print(f"📊 Columns: {list(data.columns)}")
+        print(f"Generated {len(data)} records")
+        print(f"Saved to: {filename}")
+        print(f"Columns: {list(data.columns)}")
         print(f"\nFirst 3 rows:")
         print(data.head(3))
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
 
 if __name__ == "__main__":
     main()
